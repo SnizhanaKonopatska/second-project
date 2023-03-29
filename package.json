@@ -1,0 +1,27 @@
+{
+  "name": "step-project-forkio",
+  "version": "1.0.0",
+  "description": "Зверстати в команді макет сайту в використовуючи три макети: 320px, 768px та 1200px, з використанням препроцесора SCSS та зборкою проєкту за допомогою менеджера задач Gulp.",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "build": "gulp build",
+    "dev": "gulp"
+  },
+  "author": "Ira Kaleniuk &  Snizhana Konopatska",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.11",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-js-minify": "^0.0.3",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.58.0"
+  },
+  "keywords": []
+}

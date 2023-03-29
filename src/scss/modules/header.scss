@@ -1,0 +1,390 @@
+.header {
+	position: relative;
+	height: 800px;
+	background-image: url("../img/header/background.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	@include breakpoint("my-m") {
+		z-index: 10;
+		height: 718px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 107px;
+			background-color: #27262a;
+			z-index: 2;
+			//overflow: hidden;
+			@include breakpoint-mf("my-s") {
+				height: 118px;
+			}
+		}
+	}
+}
+
+//----------container----------
+.header__container {
+	padding-top: 32px;
+	height: 100%;
+
+	@include breakpoint-mf("my-s") {
+		padding-top: 22px;
+	}
+	@include breakpoint-mf("my-m") {
+		padding-top: 30px;
+	}
+}
+
+//----------navbar----------
+.header__navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+//----------logo----------
+.header__logo {
+	display: flex;
+	align-items: center;
+	gap: 17px;
+
+	&:hover {
+		.header__logo-img--hover {
+			display: block;
+		}
+
+		.header__logo-text {
+			color: #ffffff;
+		}
+	}
+
+	@include breakpoint-mf("my-m") {
+		margin-right: auto;
+	}
+}
+
+.header__logo-wrap {
+	position: relative;
+}
+
+.header__logo-img {
+	@include breakpoint("my-m") {
+		position: relative;
+		z-index: 3;
+	}
+
+	&:hover {
+		.header__logo-img--hover {
+			display: block;
+		}
+	}
+
+	&--hover {
+		position: absolute;
+		top: 0;
+		z-index: 3;
+		display: none;
+	}
+}
+
+.header__logo-text {
+	display: none;
+	font-family: $secondary-font;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: $ln-small;
+	text-transform: uppercase;
+
+	color: $accent-color;
+
+	@include breakpoint-mf("my-s") {
+		display: block;
+		z-index: 3;
+	}
+}
+
+//----------menu----------
+.header__menu {
+	list-style: none;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+
+	@include breakpoint("my-s") {
+		position: absolute;
+		left: calc(50% - 292px / 2);
+		padding-bottom: 14px;
+		background-color: #333333;
+		width: 292px;
+		top: -100%;
+		visibility: hidden;
+		transition: top 0.7s;
+
+		&--active {
+			top: 107px;
+			visibility: visible;
+		}
+	}
+	@include breakpoint-mf("my-s") {
+		z-index: 3;
+		position: absolute;
+		top: 85px;
+		left: 0;
+		width: 100%;
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+	}
+	@include breakpoint-mf("xs") {
+		gap: 47px;
+	}
+	@include breakpoint-mf("my-m") {
+		position: relative;
+		top: 0;
+		width: auto;
+		margin-right: 48px;
+	}
+}
+
+.header__menu-item {
+	@include breakpoint("my-s") {
+		border-bottom: 3px solid #3b3b3b;
+		position: relative;
+	}
+}
+
+.header__menu-link {
+	font-family: $main-font;
+	font-weight: 700;
+	font-size: $fs-medium;
+	line-height: 18px;
+	color: $accent-color;
+
+	&:hover {
+		color: #ffffff;
+	}
+
+	@include breakpoint("my-s") {
+		color: #ffffff;
+		font-size: 26px;
+		line-height: 26px;
+		display: block;
+
+		padding-top: 30px;
+		padding-bottom: 30px;
+		padding-left: 35px;
+
+		&:active,
+		&:focus {
+			color: $accent-color;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 18px;
+				left: 0;
+
+				width: 8px;
+				height: 53px;
+				background-color: $accent-color;
+			}
+		}
+	}
+}
+
+.header__btn {
+	color: #ffffff;
+	border: 1px solid $accent-color;
+	font-family: $main-font;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 15px;
+	text-align: center;
+	background-color: #8d81ac;
+	padding: 11px;
+	border-radius: 40px;
+	width: 119px;
+
+	&:hover {
+		background: #ffffff;
+		color: $accent-color;
+		border: 1px solid $accent-color;
+	}
+
+	@include breakpoint("my-m") {
+		position: relative;
+		z-index: 3;
+	}
+	@include breakpoint-mf("my-s") {
+		width: 145px;
+	}
+
+	&--download {
+		display: block;
+		width: 290px;
+		font-size: 18px;
+		line-height: 20px;
+		padding: 12px 29px;
+
+		@include breakpoint-mf("my-s") {
+			width: 390px;
+			font-size: 21px;
+			line-height: 23px;
+			padding: 19px 61px;
+		}
+	}
+}
+
+//----------burger----------
+.header__burger {
+	z-index: 4;
+	display: block;
+	position: relative;
+	padding: 0;
+	background: none;
+	border: none;
+	width: 26px;
+	height: 21px;
+
+	@include breakpoint-mf("my-s") {
+		display: none;
+	}
+}
+
+.header__burger-span {
+	position: absolute;
+	display: block;
+	background-color: #ffffff;
+	height: 3px;
+	width: 26px;
+	border-radius: 5px;
+	right: 0;
+	transition: opacity 0.25s, width 0.25s, transform 0.5s;
+
+	&:nth-child(1) {
+		width: 15px;
+		transform: translateY(-9px);
+	}
+
+	&:nth-child(3) {
+		transform: translateY(9px);
+	}
+}
+
+//----------burger-opened----------
+.header__burger-span--opened {
+	@include breakpoint("my-s") {
+		&:nth-child(1) {
+			width: 26px;
+			transform: translateY(0) rotate(45deg);
+		}
+
+		&:nth-child(2) {
+			opacity: 0;
+		}
+
+		&:nth-child(3) {
+			transform: translateY(0) rotate(-45deg);
+		}
+	}
+}
+
+//----------body----------
+.header__body {
+	margin-top: 80px;
+	font-family: $main-font;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 19px;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+
+	@include breakpoint-mf("my-s") {
+		margin-top: 100px;
+	}
+}
+
+.header__title {
+	color: #ffffff;
+	font-weight: 700;
+	font-size: 48px;
+	line-height: 48px;
+	margin-top: 0;
+	margin-bottom: 0;
+
+	@include breakpoint-mf("my-s") {
+		font-size: 72px;
+		line-height: 72px;
+	}
+	@include breakpoint-mf("my-m") {
+		font-size: 82px;
+		line-height: 82px;
+	}
+}
+
+.header__subtitle {
+	color: $accent-color;
+	font-size: 18px;
+	line-height: $lh-medium;
+	max-width: 250px;
+	margin-top: 0;
+	margin-bottom: 0;
+
+	@include breakpoint-mf("my-s") {
+		font-family: $secondary-font;
+		max-width: 713px;
+		font-size: 18px;
+	}
+	@include breakpoint-mf("sm") {
+		font-size: 24px;
+	}
+	@include breakpoint-mf("my-m") {
+		font-size: 30px;
+		line-height: 30px;
+	}
+}
+
+.header__text {
+	color: #848e97;
+	font-size: $fs-small;
+	line-height: 14px;
+	text-transform: uppercase;
+	margin-top: 0;
+	margin-bottom: 0;
+
+	&--without-text-transform {
+		font-family: $main-font;
+		text-transform: unset;
+		line-height: $lh-small;
+	}
+
+	@include breakpoint-mf("my-m") {
+		font-size: $fs-medium;
+		line-height: $lh-small;
+	}
+}
+
+//----------footer----------
+.header__footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 13px;
+	position: absolute;
+	top: calc(100% - 44px / 2);
+	left: calc(50% - 290px / 2);
+	user-select: none;
+
+	@include breakpoint-mf("my-s") {
+		gap: 19px;
+		top: calc(100% - 61px / 2);
+		left: calc(50% - 390px / 2);
+	}
+}

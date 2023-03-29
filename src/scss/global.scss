@@ -1,0 +1,27 @@
+.wrap {
+	font-family: "Montserrat", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	overflow: hidden;
+}
+.container {
+	max-width: 340px;
+	@include magrin-center;
+	padding-left: 10px;
+	padding-right: 10px;
+	@include breakpoint-mf("my-s") {
+		max-width: 788px;
+	}
+	@include breakpoint-mf("my-m") {
+		max-width: 1220px;
+	}
+}
+
+.section-title {
+	font-weight: 700;
+	font-size: calc(28px + 20 * (100vw - 320px) / 880);
+	line-height: 42px;
+	color: #ffffff;
+	margin-top: 0;
+	margin-bottom: 0;
+}
